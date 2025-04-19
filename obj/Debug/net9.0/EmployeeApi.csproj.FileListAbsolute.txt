@@ -31,3 +31,4 @@ C:\Users\sadan\EmployeeApi\obj\Debug\net9.0\refint\EmployeeApi.dll
 C:\Users\sadan\EmployeeApi\obj\Debug\net9.0\EmployeeApi.pdb
 C:\Users\sadan\EmployeeApi\obj\Debug\net9.0\EmployeeApi.genruntimeconfig.cache
 C:\Users\sadan\EmployeeApi\obj\Debug\net9.0\ref\EmployeeApi.dll
+C:\Users\sadan\EmployeeApi\obj\Debug\net9.0\EmployeeApi.sourcelink.json

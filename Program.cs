@@ -44,11 +44,19 @@ var employees = new List<Employee>
     new Employee { Id = 2, Name = "Ravi", Department = "Engineering" }
 };
 
+app.MapPost("/employees", (Employee employee) =>
+{
+    employees.Add(employee);
+    return Results.Created($"/employees/{employee.Id}", employee);
+})
+.WithName("AddEmployee");
+
 app.MapGet("/employees", () =>
 {
     return employees;
 })
 .WithName("GetEmployees");
+
 
 app.Run();
 
