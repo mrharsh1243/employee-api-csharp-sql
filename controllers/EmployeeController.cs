@@ -4,19 +4,27 @@ using EmployeeApi.Models;
 namespace EmployeeApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("employees")]
     public class EmployeeController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        // This list will reset each time app restarts (in-memory only)
+        private static List<Employee> employees = new()
         {
-            var employees = new List<Employee>
-            {
-                new Employee { Id = 1, Name = "Harsh", Department = "DevOps" },
-                new Employee { Id = 2, Name = "Ravi", Department = "Engineering" }
-            };
+            new Employee { Id = 1, Name = "Harsh", Department = "DevOps" },
+            new Employee { Id = 2, Name = "Ravi", Department = "Engineering" }
+        };
 
+        [HttpGet]
+        public IActionResult GetEmployees()
+        {
             return Ok(employees);
+        }
+
+        [HttpPost]
+        public IActionResult AddEmployee(Employee employee)
+        {
+            employees.Add(employee);
+            return CreatedAtAction(nameof(GetEmployees), new { id = employee.Id }, employee);
         }
     }
 }
